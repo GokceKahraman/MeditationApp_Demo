@@ -1,64 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    tools:context=".ui.SignInFragment"
     android:layout_height="match_parent"
-    android:gravity="top"
-    android:orientation="vertical"
-    android:padding="25dp"
-    tools:context=".ui.SignIn">
+     android:layout_width="match_parent"
+    android:padding="30dp">
 
     <TextView
         android:id="@+id/signIn_textView"
-        android:layout_width="340dp"
-        android:layout_height="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
         android:text="@string/signIn_textView"
         android:textColor="#040303"
-        android:textSize="24sp"
+        android:textSize="30sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/sign_Username" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="340dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:id="@+id/textInputLayoutUsername"
+        android:layout_width="match_parent"
+        android:layout_height="59dp"
+        android:layout_marginTop="30dp"
         app:errorEnabled="true"
-        app:hintAnimationEnabled="true">
+        app:hintAnimationEnabled="true"
+        app:layout_constraintTop_toBottomOf="@+id/signIn_textView"
+        tools:layout_editor_absoluteX="30dp">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/sign_Username"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="match_parent"
+            android:textSize="16sp"
             android:hint="@string/sign_Username"
-            android:inputType="textPersonName"
-            android:textSize="16sp" />
+            android:inputType="textPersonName" />
+
     </com.google.android.material.textfield.TextInputLayout>
 
-
     <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="340dp"
-        android:layout_height="wrap_content"
+        android:id="@+id/textInputLayoutPassword"
+        android:layout_width="match_parent"
+        android:layout_height="59dp"
+        android:layout_marginTop="20dp"
         app:errorEnabled="true"
         app:hintAnimationEnabled="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/textInputLayoutUsername"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutUsername"
         app:passwordToggleEnabled="true">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/sign_Password"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:textSize="16sp"
             android:hint="@string/sign_Password"
-            android:inputType="textPassword"
-            android:textSize="16sp" />
+            android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/signIn_button"
-        android:layout_width="340dp"
-        android:layout_height="64dp"
-        android:text="CONTINUE"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/signIn_button"
         app:cornerRadius="80dp"
-        app:layout_constraintTop_toBottomOf="@+id/sign_Password" />
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutPassword"
+        tools:layout_editor_absoluteX="30dp" />
 
-</LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

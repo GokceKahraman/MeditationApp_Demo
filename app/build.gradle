@@ -54,8 +54,6 @@ dependencies {
 
 //ViewModel LiveData
     implementation"androidx.lifecycle:lifecycle-runtime-ktx:2.3.1"
-
-
 //Kodein Dependency Injection
     implementation 'org.kodein.di:kodein-di-generic-jvm:6.2.1'
     implementation "org.kodein.di:kodein-di-framework-android-core:6.2.1"
