@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="space_30">30dp</dimen>
+    <dimen name="space_20">20dp</dimen>
+    <dimen name="title_size">24sp</dimen>
+    <dimen name="password_size">16sp</dimen>
+
+
 </resources>
