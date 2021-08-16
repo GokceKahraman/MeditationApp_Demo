@@ -25,6 +25,10 @@
         android:id="@+id/mediaDesign"
         android:name="com.example.meditationapp_demo.ui.MediaDesign"
         android:label="fragment_media_design"
-        tools:layout="@layout/fragment_media_design" />
+        tools:layout="@layout/fragment_media_design" >
+        <action
+            android:id="@+id/action_mediaDesign_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
 
 </navigation>
