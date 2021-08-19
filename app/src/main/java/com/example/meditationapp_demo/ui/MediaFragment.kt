@@ -21,10 +21,6 @@ class MediaDesign : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        playButton.setOnClickListener {
-
-        }
-
     }
 
     override fun onCreateView(
@@ -33,6 +29,11 @@ class MediaDesign : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_media_design, container, false)
+
+        playButton.setOnClickListener {
+
+        }
+
     }
 
 
