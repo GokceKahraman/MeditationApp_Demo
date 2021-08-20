@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.meditationapp_demo.databinding.ItemMeditationBinding
 import com.example.meditationapp_demo.databinding.ItemStoryBinding
 import com.example.meditationapp_demo.databinding.ItemTitleBinding
 import com.example.meditationapp_demo.ui.adapters.types.*
@@ -34,6 +35,7 @@ class HomeAdapter : RecyclerView.Adapter<BaseViewHolder>() {
 
     override fun getItemCount(): Int = list.size
 
+    //Home page view
     override fun getItemViewType(position: Int): Int {
         return when (list[position]) {
             is TitleListItem -> TYPE_TITLE
@@ -51,12 +53,16 @@ class HomeAdapter : RecyclerView.Adapter<BaseViewHolder>() {
         }
     }
 
+
     inner class HomeStoryHolder(private val binding: ItemStoryBinding) :
         BaseViewHolder(binding.root) {
         override fun bind() {
             binding.story = (list[adapterPosition] as StoryListItem).story
         }
     }
+
+
+
 
     companion object {
         const val TYPE_TITLE = 0

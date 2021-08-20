@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
+import androidx.lifecycle.ViewModelProvider
 import com.example.meditationapp_demo.R
 
 lateinit var playButton : ImageButton
@@ -30,10 +31,15 @@ class MediaDesign : Fragment() {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_media_design, container, false)
 
-        playButton.setOnClickListener {
 
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        playButton.setOnClickListener {
         }
 
+      //  viewModel = ViewModelProvider.
     }
 
 
