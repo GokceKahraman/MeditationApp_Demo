@@ -54,15 +54,17 @@ class HomeFragment : Fragment() {
         getData()
     }
 
+    //You can access the blob directly at https://jsonblob.com/38f4bf2d-03f4-11ec-90b2-0395005772d0
+    //new json url,
     private fun getData() {
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://jsonblob.com/api/")
+            .baseUrl("https://jsonblob.com/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
         val service: ApiInterface = retrofit.create(ApiInterface::class.java)
 
-        service.listData("a07152f5-775c-11eb-a533-c90b9d55001f")
+        service.listData("38f4bf2d-03f4-11ec-90b2-0395005772d0")
             .enqueue(object : Callback<DataClass> {
                 override fun onResponse(call: Call<DataClass>, response: Response<DataClass>) {
                     if (response.isSuccessful) {
