@@ -22,6 +22,8 @@ lateinit var media_dateText : TextView
 lateinit var playImage : TextView
 private lateinit var playAnimation: AnimationDrawable
 
+val url = "https://d2r0ihkco3hemf.cloudfront.net/bgxupraW2spUpr_y2.mp3" // your URL here
+
 
 
 class MediaDesign : Fragment() {
@@ -39,15 +41,6 @@ class MediaDesign : Fragment() {
         return inflater.inflate(R.layout.fragment_media_design, container, false)
 
 
-
-        playImage.findViewById<TextView>(R.id.playImage).apply {
-            setBackgroundResource(R.drawable.animation_play_pause)
-            playAnimation = background as AnimationDrawable
-        }
-
-        playImage.setOnClickListener({ playAnimation.start() })
-
-        val url = "https://d2r0ihkco3hemf.cloudfront.net/bgxupraW2spUpr_y2.mp3" // your URL here
         val mediaPlayer = MediaPlayer().apply {
             setAudioAttributes(
                 AudioAttributes.Builder()
@@ -60,10 +53,18 @@ class MediaDesign : Fragment() {
             start()
         }
 
+        playImage.findViewById<TextView>(R.id.playImage).apply {
+            setBackgroundResource(R.drawable.animation_play_pause)
+            playAnimation = background as AnimationDrawable
+        }
+        playImage.setOnClickListener({ playAnimation.start()
+            mediaPlayer.start()
+
+
+        })
+
 
     }
-
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
