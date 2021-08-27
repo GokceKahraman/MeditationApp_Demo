@@ -1,6 +1,8 @@
 package com.example.meditationapp_demo.ui
 
 import android.graphics.drawable.AnimationDrawable
+import android.media.AudioAttributes
+import android.media.MediaPlayer
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -44,6 +46,19 @@ class MediaDesign : Fragment() {
         }
 
         playImage.setOnClickListener({ playAnimation.start() })
+
+        val url = "https://d2r0ihkco3hemf.cloudfront.net/bgxupraW2spUpr_y2.mp3" // your URL here
+        val mediaPlayer = MediaPlayer().apply {
+            setAudioAttributes(
+                AudioAttributes.Builder()
+                    .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
+                    .setUsage(AudioAttributes.USAGE_MEDIA)
+                    .build()
+            )
+            setDataSource(url)
+            prepare() // might take long! (for buffering, etc)
+            start()
+        }
 
 
     }

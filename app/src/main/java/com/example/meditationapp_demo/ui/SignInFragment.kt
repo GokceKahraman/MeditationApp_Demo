@@ -39,6 +39,10 @@ class SignInFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        if (sign_Username.length()<2){
+
+        }
+
         binding.signInButton.setOnClickListener {
             val direction = SignInFragmentDirections.actionSignInFragmentToHomeFragment()
             findNavController().navigate(direction)
