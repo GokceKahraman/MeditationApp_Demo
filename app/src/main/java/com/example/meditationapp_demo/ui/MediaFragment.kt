@@ -1,27 +1,32 @@
 package com.example.meditationapp_demo.ui
 
+import android.graphics.drawable.AnimationDrawable
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.TextView
+import androidx.databinding.DataBindingUtil.setContentView
 import androidx.lifecycle.ViewModelProvider
 import com.example.meditationapp_demo.R
 
-lateinit var playButton : ImageButton
+
 lateinit var media_headerText : TextView
 lateinit var media_detailText : TextView
 lateinit var media_dateText : TextView
+lateinit var playImage : TextView
+private lateinit var playAnimation: AnimationDrawable
+
 
 
 class MediaDesign : Fragment() {
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        setContentView(R.layout.fragment_media_design)
     }
 
     override fun onCreateView(
@@ -32,12 +37,22 @@ class MediaDesign : Fragment() {
         return inflater.inflate(R.layout.fragment_media_design, container, false)
 
 
+
+        playImage.findViewById<TextView>(R.id.playImage).apply {
+            setBackgroundResource(R.drawable.animation_play_pause)
+            playAnimation = background as AnimationDrawable
+        }
+
+        playImage.setOnClickListener({ playAnimation.start() })
+
+
     }
+
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        playButton.setOnClickListener {
-        }
+
 
       //  viewModel = ViewModelProvider.
     }

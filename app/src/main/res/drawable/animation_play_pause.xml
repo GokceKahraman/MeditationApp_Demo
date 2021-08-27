@@ -3,8 +3,8 @@
     android:oneshot="true">
     //f oneshot is set false then the animation will loop!
 
-    <item android:drawable="@drawable/ic_twotone_play_circle_filled_24" android:duration="300"/>
-    <item android:drawable="@drawable/ic_twotone_pause_circle_filled_24" android:duration="300"/>
+    <item android:drawable="@drawable/ic_circle_filled_24play" android:duration="300"/>
+    <item android:drawable="@drawable/ic_circle_filled_24pause" android:duration="300"/>
 
 
 </animation-list>

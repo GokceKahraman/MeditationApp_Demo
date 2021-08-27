@@ -6,19 +6,21 @@
     android:layout_height="match_parent"
     tools:context=".ui.MediaDesign">
 
-    <ImageButton
-        android:id="@+id/playButton"
+    <ImageView
+        android:id="@+id/playImage"
         android:layout_width="77dp"
         android:layout_height="71dp"
         android:layout_marginStart="167dp"
         android:layout_marginTop="71dp"
         android:layout_marginEnd="167dp"
         android:layout_marginBottom="30dp"
-        android:src="@drawable/ic_twotone_play_circle_filled_24"
+        android:clickable="true"
+        android:src="@drawable/ic_circle_filled_24play"
         app:layout_constraintBottom_toTopOf="@+id/media_headerText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/animation_play_pause" />
 
     <TextView
         android:id="@+id/media_headerText"
@@ -32,7 +34,7 @@
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/playButton" />
+        app:layout_constraintTop_toBottomOf="@+id/playImage" />
 
     <TextView
         android:id="@+id/media_detailText"

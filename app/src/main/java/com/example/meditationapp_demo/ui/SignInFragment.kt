@@ -42,6 +42,9 @@ class SignInFragment : Fragment() {
         binding.signInButton.setOnClickListener {
             val direction = SignInFragmentDirections.actionSignInFragmentToHomeFragment()
             findNavController().navigate(direction)
+
+
+
         }
     }
 
