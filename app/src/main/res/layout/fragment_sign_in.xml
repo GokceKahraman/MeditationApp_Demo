@@ -35,7 +35,7 @@
         tools:layout_editor_absoluteX="30dp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/sign_Username"
+            android:id="@+id/signUserName"
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:hint="@string/sign_Username"
