@@ -6,8 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".ui.MediaDesign">
 
-    <ImageView
-        android:id="@+id/playImage"
+    <ImageButton
+        android:id="@+id/pauseButton"
         android:layout_width="77dp"
         android:layout_height="71dp"
         android:layout_marginStart="167dp"
@@ -15,12 +15,11 @@
         android:layout_marginEnd="167dp"
         android:layout_marginBottom="30dp"
         android:clickable="true"
-        android:src="@drawable/ic_circle_filled_24play"
         app:layout_constraintBottom_toTopOf="@+id/media_headerText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/animation_play_pause" />
+        app:srcCompat="@drawable/ic_circle_filled_24pause" />
 
     <TextView
         android:id="@+id/media_headerText"
@@ -34,7 +33,7 @@
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/playImage" />
+        app:layout_constraintTop_toBottomOf="@+id/pauseButton" />
 
     <TextView
         android:id="@+id/media_detailText"

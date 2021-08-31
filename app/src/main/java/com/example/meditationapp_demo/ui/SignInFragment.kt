@@ -1,5 +1,8 @@
 package com.example.meditationapp_demo.ui
 
+import android.app.backup.SharedPreferencesBackupHelper
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -21,6 +24,10 @@ class SignInFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
+        val sharedPreferences: SharedPreferences = requireActivity().applicationContext.getSharedPreferences("com.example.meditationapp_demo.ui",   Context.MODE_PRIVATE) // kotlin
+
 
         binding.signInButton.setOnClickListener {
             if (signInTextViewControl()){
