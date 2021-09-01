@@ -16,11 +16,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.meditationapp_demo.R
 
 
-lateinit var media_headerText : TextView
-lateinit var media_detailText : TextView
-lateinit var media_dateText : TextView
-lateinit var playImage : TextView
-private lateinit var playAnimation: AnimationDrawable
+lateinit var pauseButton : ImageButton
 
 val url = "https://d2r0ihkco3hemf.cloudfront.net/bgxupraW2spUpr_y2.mp3" // your URL here
 
@@ -30,7 +26,6 @@ class MediaDesign : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.fragment_media_design)
     }
 
     override fun onCreateView(
@@ -38,7 +33,6 @@ class MediaDesign : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_media_design, container, false)
 
 
         val mediaPlayer = MediaPlayer().apply {
@@ -53,16 +47,16 @@ class MediaDesign : Fragment() {
             start()
         }
 
-        playImage.findViewById<TextView>(R.id.playImage).apply {
-            setBackgroundResource(R.drawable.animation_play_pause)
-            playAnimation = background as AnimationDrawable
+
+
+        pauseButton.findViewById<TextView>(R.id.pauseButton).apply {
         }
-        playImage.setOnClickListener({ playAnimation.start()
-            mediaPlayer.start()
+        pauseButton.setOnClickListener {
 
 
-        })
+        }
 
+        return inflater.inflate(R.layout.fragment_media_design, container, false)
 
     }
 
@@ -70,7 +64,6 @@ class MediaDesign : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
-      //  viewModel = ViewModelProvider.
     }
 
 
