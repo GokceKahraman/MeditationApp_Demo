@@ -7,12 +7,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.meditationapp_demo.databinding.FragmentSignInBinding
 
 class SignInFragment : Fragment() {
     private lateinit var binding: FragmentSignInBinding
+    lateinit var signUserName: EditText
+    lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,10 +29,15 @@ class SignInFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
-        val sharedPreferences: SharedPreferences = requireActivity().applicationContext.getSharedPreferences("com.example.meditationapp_demo.ui",   Context.MODE_PRIVATE) // kotlin
-
+        sharedPreferences = requireActivity().getSharedPreferences("UserData",   Context.MODE_PRIVATE) // kotlin
 
         binding.signInButton.setOnClickListener {
+
+            signUserName.text.toString()
+            //first  .edit
+            sharedPreferences.edit().putString("userNamePreferences", signUserName.toString()).apply()
+
+
             if (signInTextViewControl()){
                 val direction = SignInFragmentDirections.actionSignInFragmentToHomeFragment()
                 findNavController().navigate(direction)

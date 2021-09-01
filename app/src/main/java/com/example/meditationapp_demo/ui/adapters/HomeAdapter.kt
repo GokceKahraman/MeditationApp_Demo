@@ -24,7 +24,7 @@ class HomeAdapter : RecyclerView.Adapter<BaseViewHolder>() {
         return when (viewType) {
             TYPE_TITLE -> HomeTitleHolder(ItemTitleBinding.inflate(LayoutInflater.from(parent.context), parent, false))
             TYPE_STORY -> HomeStoryHolder(ItemStoryBinding.inflate(LayoutInflater.from(parent.context), parent, false))
-
+            TYPE_BANNER ->
             else -> HomeTitleHolder(ItemTitleBinding.inflate(LayoutInflater.from(parent.context)))
         }
     }
@@ -58,6 +58,14 @@ class HomeAdapter : RecyclerView.Adapter<BaseViewHolder>() {
         BaseViewHolder(binding.root) {
         override fun bind() {
             binding.story = (list[adapterPosition] as StoryListItem).story
+        }
+    }
+
+    inner class HomeMeditationHolder(private val binding: ItemMeditationBinding) :
+        BaseViewHolder(binding.root) {
+        override fun bind() {
+            //binding.imageView = (list[adapterPosition] as MeditationListItem).list
+           // binding.imageView = (list)
         }
     }
 
