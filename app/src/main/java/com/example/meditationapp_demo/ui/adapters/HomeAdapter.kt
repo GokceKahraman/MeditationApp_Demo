@@ -24,7 +24,8 @@ class HomeAdapter : RecyclerView.Adapter<BaseViewHolder>() {
         return when (viewType) {
             TYPE_TITLE -> HomeTitleHolder(ItemTitleBinding.inflate(LayoutInflater.from(parent.context), parent, false))
             TYPE_STORY -> HomeStoryHolder(ItemStoryBinding.inflate(LayoutInflater.from(parent.context), parent, false))
-            TYPE_BANNER ->
+            //TYPE_BANNER -> HomeBannerHolder()
+            TYPE_MEDITATION -> HomeMeditationHolder(ItemMeditationBinding.inflate(LayoutInflater.from(parent.context), parent, false))
             else -> HomeTitleHolder(ItemTitleBinding.inflate(LayoutInflater.from(parent.context)))
         }
     }
@@ -60,6 +61,12 @@ class HomeAdapter : RecyclerView.Adapter<BaseViewHolder>() {
             binding.story = (list[adapterPosition] as StoryListItem).story
         }
     }
+
+    inner class HomeBannerHolder(private val binding: ItemBannerBinding) :
+
+
+
+
 
     inner class HomeMeditationHolder(private val binding: ItemMeditationBinding) :
         BaseViewHolder(binding.root) {
