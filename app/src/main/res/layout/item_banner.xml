@@ -20,6 +20,10 @@
             android:layout_height="wrap_content"
             app:srcCompat="@android:drawable/btn_star_big_on"
             android:padding="5dp"
+            android:layout_marginStart="@dimen/space_20"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
              />
 
         <TextView
@@ -29,8 +33,14 @@
             android:textColor="@color/white"
             android:textSize="@dimen/title_size"
             android:textStyle="bold"
-            android:layout_toRightOf="@+id/starImage"
+            android:layout_marginBottom="@dimen/space_20"
+            android:layout_marginEnd="@dimen/space_20"
+            android:layout_marginStart="@dimen/space_20"
+            android:layout_marginTop="@dimen/space_20"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@id/starImage"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_toRightOf="@+id/starImage"
             android:padding="5dp"
              />
 
