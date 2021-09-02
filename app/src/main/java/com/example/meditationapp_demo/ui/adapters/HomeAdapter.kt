@@ -62,7 +62,7 @@ class HomeAdapter : RecyclerView.Adapter<BaseViewHolder>() {
         }
     }
 
-    inner class HomeBannerHolder(private val binding: ItemBannerBinding) :
+   // inner class HomeBannerHolder(private val binding: ItemBannerBinding) :
 
 
 
@@ -71,8 +71,7 @@ class HomeAdapter : RecyclerView.Adapter<BaseViewHolder>() {
     inner class HomeMeditationHolder(private val binding: ItemMeditationBinding) :
         BaseViewHolder(binding.root) {
         override fun bind() {
-            //binding.imageView = (list[adapterPosition] as MeditationListItem).list
-           // binding.imageView = (list)
+           // binding.
         }
     }
 

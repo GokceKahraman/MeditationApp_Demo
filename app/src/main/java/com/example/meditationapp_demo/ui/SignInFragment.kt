@@ -28,8 +28,8 @@ class SignInFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
-        sharedPreferences = requireActivity().getSharedPreferences("UserData",   Context.MODE_PRIVATE) // kotlin
+        // kotlin shared pref
+        sharedPreferences = requireActivity().getSharedPreferences("UserData",   Context.MODE_PRIVATE)
 
         binding.signInButton.setOnClickListener {
 
@@ -45,6 +45,8 @@ class SignInFragment : Fragment() {
 
         }
     }
+
+    //for password check used Regex
 
     fun signInTextViewControl() : Boolean{
         // username includes at least 2 characters, 1 upper, 1 small
