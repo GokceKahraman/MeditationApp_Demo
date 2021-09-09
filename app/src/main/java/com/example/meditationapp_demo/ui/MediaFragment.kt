@@ -11,17 +11,19 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.graphics.drawable.DrawableCompat
 import androidx.databinding.DataBindingUtil.setContentView
 import androidx.lifecycle.ViewModelProvider
 import com.example.meditationapp_demo.R
+import com.example.meditationapp_demo.databinding.FragmentMediaDesignBinding
+import com.example.meditationapp_demo.databinding.FragmentSignInBinding
 
 
 lateinit var pauseButton : ImageButton
+private lateinit var binding: FragmentMediaDesignBinding
+
 
 val url = "https://d2r0ihkco3hemf.cloudfront.net/bgxupraW2spUpr_y2.mp3" // your URL here
-
-
-
 class MediaDesign : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,7 +36,6 @@ class MediaDesign : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
 
-
         val mediaPlayer = MediaPlayer().apply {
             setAudioAttributes(
                 AudioAttributes.Builder()
@@ -43,18 +44,16 @@ class MediaDesign : Fragment() {
                     .build()
             )
             setDataSource(url)
-            prepare() // might take long! (for buffering, etc)
+            prepare()
             start()
         }
 
-
-
-        pauseButton.findViewById<TextView>(R.id.pauseButton).apply {
-        }
-        pauseButton.setOnClickListener {
-
+        binding.pauseButton.setOnClickListener {
+            mediaPlayer.stop()
+            pauseButton.setBackgroundResource(R.drawable.ic_circle_filled_24play);
 
         }
+
 
         return inflater.inflate(R.layout.fragment_media_design, container, false)
 

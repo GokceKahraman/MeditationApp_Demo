@@ -4,12 +4,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.HorizontalScrollView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.meditationapp_demo.data.ApiInterface
 import com.example.meditationapp_demo.databinding.FragmentHomeDesignBinding
 import com.example.meditationapp_demo.model.DataClass
 import com.example.meditationapp_demo.ui.adapters.HomeAdapter
+import com.example.meditationapp_demo.ui.adapters.types.BannerListItem
 import com.example.meditationapp_demo.ui.adapters.types.BaseListItem
 import com.example.meditationapp_demo.ui.adapters.types.StoryListItem
 import com.example.meditationapp_demo.ui.adapters.types.TitleListItem
@@ -32,13 +35,20 @@ class HomeFragment : Fragment() {
         return binding.root
     }
 
+
     //sharedPreferences.getString("userNamePreferences", "").toString()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //GridLayout
         binding.homeRecycler.apply {
+
+
+
+            //vertical recyclerview
+
+
+            //GridLayout shows 2 in a row.
             val gridLayoutManager = GridLayoutManager(requireContext(), 2)
             gridLayoutManager.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
                 override fun getSpanSize(position: Int): Int {
@@ -50,8 +60,10 @@ class HomeFragment : Fragment() {
                 }
 
             }
-
             layoutManager = gridLayoutManager
+
+
+
             adapter = this@HomeFragment.adapter
         }
 
@@ -59,9 +71,8 @@ class HomeFragment : Fragment() {
     }
 
 
-    //https://jsonblob.com/api/jsonBlob/880820375799373824
-    //https://jsonblob.com/api/jsonBlob/api/jsonBlob/880820375799373824
-    //new json url,
+    //https://jsonblob.com/api/        jsonBlob/880820375799373824
+
     private fun getData() {
         val retrofit = Retrofit.Builder()
             .baseUrl("https://jsonblob.com/api/")
@@ -81,9 +92,9 @@ class HomeFragment : Fragment() {
                                 list.add(TitleListItem("Meditations"))
                                 // list.add(MeditationListItem(meditations))
                             }
-                            /* if (isBannerEnabled) {
+                             if (isBannerEnabled) {
                                  list.add(BannerListItem())
-                             */
+                             }
                             if (stories.size > 0) {
                                 list.add(TitleListItem("Stories"))
                                 stories.forEach {

@@ -24,6 +24,6 @@
 
 
     <!-- Strings related to banner -->
-    <string name="banner_text">  welcome!</string>
+    <string name="banner_text">  Look, %1s. Pretty, isnt it? Perfectly balanced. As all things should be.</string>
 
 </resources>

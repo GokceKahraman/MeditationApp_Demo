@@ -14,7 +14,6 @@ import com.example.meditationapp_demo.databinding.FragmentSignInBinding
 
 class SignInFragment : Fragment() {
     private lateinit var binding: FragmentSignInBinding
-    lateinit var signUserName: EditText
     lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreateView(
@@ -27,17 +26,16 @@ class SignInFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        // kotlin shared pref
+        // kotlin shared pref. string=userdata mode= private
         sharedPreferences = requireActivity().getSharedPreferences("UserData",   Context.MODE_PRIVATE)
 
         binding.signInButton.setOnClickListener {
 
-            signUserName.text.toString()
-            //first  .edit
-            sharedPreferences.edit().putString("userNamePreferences", signUserName.toString()).apply()
+            binding.signUserName.text.toString()
 
+            sharedPreferences.edit().putString("userNamePreferences", binding.signUserName.text.toString()).apply()
 
+//Password and username provide rules; with navigotion go other fragmnt.
             if (signInTextViewControl()){
                 val direction = SignInFragmentDirections.actionSignInFragmentToHomeFragment()
                 findNavController().navigate(direction)

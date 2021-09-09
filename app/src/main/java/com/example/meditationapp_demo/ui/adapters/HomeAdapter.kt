@@ -1,9 +1,12 @@
 package com.example.meditationapp_demo.ui.adapters
 
 import android.annotation.SuppressLint
+import android.content.Context
+import android.content.SharedPreferences
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.meditationapp_demo.databinding.ItemBannerBinding
 import com.example.meditationapp_demo.databinding.ItemMeditationBinding
 import com.example.meditationapp_demo.databinding.ItemStoryBinding
 import com.example.meditationapp_demo.databinding.ItemTitleBinding
@@ -22,10 +25,34 @@ class HomeAdapter : RecyclerView.Adapter<BaseViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder {
         return when (viewType) {
-            TYPE_TITLE -> HomeTitleHolder(ItemTitleBinding.inflate(LayoutInflater.from(parent.context), parent, false))
-            TYPE_STORY -> HomeStoryHolder(ItemStoryBinding.inflate(LayoutInflater.from(parent.context), parent, false))
-            //TYPE_BANNER -> HomeBannerHolder()
-            TYPE_MEDITATION -> HomeMeditationHolder(ItemMeditationBinding.inflate(LayoutInflater.from(parent.context), parent, false))
+            TYPE_TITLE -> HomeTitleHolder(
+                ItemTitleBinding.inflate(
+                    LayoutInflater.from(parent.context),
+                    parent,
+                    false
+                )
+            )
+            TYPE_STORY -> HomeStoryHolder(
+                ItemStoryBinding.inflate(
+                    LayoutInflater.from(parent.context),
+                    parent,
+                    false
+                )
+            )
+            TYPE_BANNER -> HomeBannerHolder(
+                ItemBannerBinding.inflate(
+                    LayoutInflater.from(parent.context),
+                    parent,
+                    false
+                )
+            )
+            TYPE_MEDITATION -> HomeMeditationHolder(
+                ItemMeditationBinding.inflate(
+                    LayoutInflater.from(parent.context),
+                    parent,
+                    false
+                )
+            )
             else -> HomeTitleHolder(ItemTitleBinding.inflate(LayoutInflater.from(parent.context)))
         }
     }
@@ -62,20 +89,24 @@ class HomeAdapter : RecyclerView.Adapter<BaseViewHolder>() {
         }
     }
 
-   // inner class HomeBannerHolder(private val binding: ItemBannerBinding) :
+    inner class HomeBannerHolder(private val binding: ItemBannerBinding) :
+        BaseViewHolder(binding.root) {
+        val sharedPreferences = itemView.context.getSharedPreferences("UserData",   Context.MODE_PRIVATE)
 
 
+        override fun bind() {
+            binding.userName = sharedPreferences.getString("userNamePreferences","")
 
+        }
+    }
 
 
     inner class HomeMeditationHolder(private val binding: ItemMeditationBinding) :
         BaseViewHolder(binding.root) {
         override fun bind() {
-           // binding.
+            //    binding.meditation = (list[adapterPosition] as MeditationListItem).meditation
         }
     }
-
-
 
 
     companion object {
